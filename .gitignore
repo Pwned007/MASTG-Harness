@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.log
+
+# runtime state — created per engagement, never commit a real client's data
+.mastg-engagement.json
+
+# local MobSF config (API key, server URL) — owner-only, never commit
+.config/

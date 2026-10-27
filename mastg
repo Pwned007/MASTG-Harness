@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Wrapper so you don't have to activate the venv. Run: ./mastg run app.apk
+# Uses the project-local venv's Python if present, else the system python3.
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -x "$DIR/venv/bin/python" ]; then
+    PY="$DIR/venv/bin/python"
+else
+    PY="$(command -v python3 || command -v python)"
+fi
+exec "$PY" "$DIR/mastg.py" "$@"
